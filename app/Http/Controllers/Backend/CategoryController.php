@@ -3,14 +3,18 @@
 namespace App\Http\Controllers\backend;
 
 use App\Domains\Auth\Services\CategoryService;
+use App\Domains\Auth\Services\MediaUploadService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 class CategoryController extends Controller
 {
     public CategoryService $categoryService;
+
     public function __construct(CategoryService $categoryService)
     {
         $this->categoryService = $categoryService;
@@ -42,7 +46,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(CategoryRequest $request)
-    { 
+    {  
         $category = $this->categoryService->store($request->validated()); 
         return redirect()->route('admin.category')->withFlashSuccess(__('The Category was successfully created.'));
     }

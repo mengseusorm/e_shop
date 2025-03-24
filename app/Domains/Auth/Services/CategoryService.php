@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Services\BaseService;
 use Exception;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
 
 /**
  * Class CategoryService.
@@ -33,8 +35,17 @@ class CategoryService extends BaseService
     public function store(array $data = []): Category
     {
         DB::beginTransaction(); 
+        $filename = '';
         try {
+            if($data['image']){
+                $image = $data['image'];
+                $filename = time() . '.' . $image->getClientOriginalExtension();
+                $croppedImage = Image::make($image)->fit(300, 300);
+                Storage::disk('public')->put('uploads/' . $filename, (string) $croppedImage->encode());
+            }
+
             $Category = $this->model::create([
+                'image'         => $filename,
                 'category_name' => $data['category_name'], 
                 'category_slug' => $data['category_slug'],
                 'status'        => $data['status'],

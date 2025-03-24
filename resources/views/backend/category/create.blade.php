@@ -5,7 +5,7 @@
 @section('title', __('Create Category'))
 
 @section('content')
-    <x-forms.post :action="route('admin.category.store')">
+    <x-forms.post :action="route('admin.category.store')" enctype="multipart/form-data">
         @csrf
         <x-backend.card>
             <x-slot name="header">
