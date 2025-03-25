@@ -26,6 +26,7 @@ class CreateProductsTable extends Migration
             $table->json('size')->nullable();
             $table->string('description')->nullable()->max(2048);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
+            $table->foreignId('country_code_id')->constrained('countrie_codes')->after('product_code'); 
             $table->timestamps();
         });
     }

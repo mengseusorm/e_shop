@@ -1,0 +1,53 @@
+@inject('model', '\App\Domains\Auth\Models\User')
+
+@extends('backend.layouts.app')
+
+@section('title', __('Create Category'))
+
+@section('content')
+    <x-forms.post :action="route('admin.merchant.store')" enctype="multipart/form-data">
+        @csrf
+        <x-backend.card>
+            <x-slot name="header">
+                @lang('Create User')
+            </x-slot>
+
+            <x-slot name="headerActions">
+                <x-utils.link class="card-header-action" :href="route('admin.merchant')" :text="__('Cancel')" />
+            </x-slot>
+
+            <x-slot name="body">
+                <div>  
+                    <div class="form-group row">
+                        <label for="name" class="col-md-2 col-form-label text-uppercase">@lang('user')</label> 
+                        <div class="col-md-10">
+                            <input type="text" name="merchant_name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('merchant_name') }}" maxlength="100"  />
+                        </div>
+                    </div><!--form-group-->
+                    <div class="form-group row">
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('address')</label> 
+                        <div class="col-md-10">
+                            <input type="text" name="address" class="form-control" placeholder="{{ __('Address') }}" value="{{ old('address') }}" maxlength="255"  />
+                        </div>
+                    </div><!--form-group-->   
+                    <div class="form-group row">
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('phone number')</label> 
+                        <div class="col-md-10">
+                            <input type="text" name="phone_number" class="form-control" placeholder="{{ __('Phone number') }}" value="{{ old('phone_number') }}" maxlength="255"  />
+                        </div>
+                    </div><!--form-group-->   
+                    <div class="form-group row">
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Date of birth')</label> 
+                        <div class="col-md-10">
+                            <input type="date" name="dob" class="form-control" value="{{ old('dob') }}"/>
+                        </div>
+                    </div><!--form-group-->    
+                </div>
+            </x-slot>
+
+            <x-slot name="footer">
+                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Create')</button>
+            </x-slot>
+        </x-backend.card>
+    </x-forms.post>
+@endsection

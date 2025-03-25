@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\backend\CountryCodeController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\backend\MerchantController;
+use App\Http\Controllers\backend\ProuductController;
 use Tabuna\Breadcrumbs\Trail;
 
 // All route names are prefixed with 'admin.'.
@@ -21,10 +24,10 @@ Route::get('/users', function () {
  */
 Route::get('/category',[CategoryController::class,'index'])->name('category')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.category'));
-}); ;
+});
 Route::get('/category-create',[CategoryController::class,'create'])->name('category.create')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.category.create'));
-}); ;
+});
 Route::post('/category-store',[CategoryController::class,'store'])->name('category.store')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.category.store'));
 });
@@ -35,3 +38,67 @@ Route::match(['put','patch','post'],'/category-update/{category}',[CategoryContr
     $trail->push(__('Home'), route('admin.category.update'));
 });
 Route::delete('/category-delete/{category}',[CategoryController::class,'destroy'])->name('category.destroy');
+/**
+ * merchant
+ */
+Route::get('/merchant',[MerchantController::class,'index'])
+    ->name('merchant')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.merchant'));
+});
+Route::get('/merchant-create',[MerchantController::class,'create'])
+    ->name('merchant.create')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.merchant.create'));
+});
+Route::post('/merchant-store',[MerchantController::class,'store'])
+    ->name('merchant.store')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.merchant.store'));
+});
+Route::get('/merchant-edit/{merchant}',[MerchantController::class,'edit'])
+    ->name('merchant.edit')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.merchant.edit'));
+});
+Route::match(['patch','put','post'],'/merchant-update/{merchant}',[MerchantController::class,'update'])
+    ->name('merchant.update')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.merchant.update'));
+});
+Route::delete('/merchant',[MerchantController::class,'destroy'])
+    ->name('merchant.destory')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.merchant.destroy'));
+});
+/**
+ * product
+ */
+Route::get('/product',[ProuductController::class,'index'])
+    ->name('product')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.product'));
+});
+Route::get('/product-create',[ProuductController::class,'create'])->name('product.create')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.product.create'));
+});
+/**
+ * country code
+ */
+Route::get('/country-code',[CountryCodeController::class,'index'])
+    ->name('country.code')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.country.code'));
+});
+Route::get('/country-code-create',[CountryCodeController::class,'create'])
+    ->name('country.code.create')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.country.code.create'));
+});
+Route::post('/country-store',[CountryCodeController::class,'store'])
+    ->name('country.code.store')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.country.code.store'));
+});
+Route::get('/country-code-edit/{country.code}',[CountryCodeController::class,'edit'])
+    ->name('country.code.edit')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.country.code.edit'));
+});
+Route::match(['patch','put','post'],'/country-code-update/{country.code}',[CountryCodeController::class,'update'])
+    ->name('country.code.update')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.country.code.update'));
+});
+Route::delete('/country-code',[CountryCodeController::class,'destroy'])
+    ->name('country.code.destory')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.country.code.destroy'));
+});

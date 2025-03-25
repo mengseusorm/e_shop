@@ -22,8 +22,32 @@
                 class="c-sidebar-nav-link"
                 :href="route('admin.category')"
                 :active="activeClass(Route::is('admin.category'), 'c-active')"
-                icon="c-sidebar-nav-icon cil-speedometer"
+                icon="c-sidebar-nav-icon cil-tags"
                 :text="__('Category')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.product')"
+                :active="activeClass(Route::is('admin.product'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-inbox"
+                :text="__('Products')" />
+        </li> 
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.merchant')"
+                :active="activeClass(Route::is('admin.merchant'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-user"
+                :text="__('Merchant')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.country.code')"
+                :active="activeClass(Route::is('admin.country.code'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-flag-alt"
+                :text="__('Country Code')" />
         </li>
 
         @if (
