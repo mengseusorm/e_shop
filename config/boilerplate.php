@@ -168,6 +168,7 @@ return [
             'no' => ['name' => 'Norwegian', 'rtl' => false],
             'pl' => ['name' => 'Polish', 'rtl' => false],
             'pt_BR' => ['name' => 'Brazilian Portuguese', 'rtl' => false],
+            'kh' => ['name' => 'Khmer', 'rtl' => false],
             'pt_PT' => ['name' => 'Portuguese', 'rtl' => false],
             'ro' => ['name' => 'Romana', 'rtl' => false],
             'ru' => ['name' => 'Russian', 'rtl' => false],

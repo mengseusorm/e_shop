@@ -9,7 +9,7 @@
         @csrf
         <x-backend.card>
             <x-slot name="header">
-                @lang('Create User')
+                @lang('Create Country')
             </x-slot>
             <x-slot name="headerActions">
                 <x-utils.link class="card-header-action" :href="route('admin.country.code')" :text="__('Cancel')" />

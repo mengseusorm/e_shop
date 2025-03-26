@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Domains\Auth\Services\CountryCodeService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CountryCodeRequest;
 use Illuminate\Http\Request;
 
 class CountryCodeController extends Controller
 {
+    public CountryCodeService $countryCodeService;
+
+    public function __construct(CountryCodeService $countryCodeService)
+    {
+        $this->countryCodeService = $countryCodeService;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,10 +41,10 @@ class CountryCodeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $merchant = $this->MerchantService->store($request->validated()); 
-        return redirect()->route('admin.merchant')->withFlashSuccess(__('The Merchant was successfully created.'));
+    public function store(CountryCodeRequest $request)
+    {   
+        $countryCode = $this->countryCodeService->store($request->validated()); 
+        return redirect()->route('admin.country.code')->withFlashSuccess(__('The Country Code was successfully created.'));
     }
 
     /**

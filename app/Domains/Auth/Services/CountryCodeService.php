@@ -2,14 +2,13 @@
 
 namespace App\Domains\Auth\Services;
 
-use App\Exceptions\GeneralException;
-use App\Models\CountryCode;
-use App\Models\CountryCodeModel;
-use App\Services\BaseService;
 use Exception;
+use App\Models\CountryCode;
+use App\Services\BaseService;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use App\Exceptions\GeneralException;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class CountryCodeService.
@@ -21,7 +20,7 @@ class CountryCodeService extends BaseService
      *
      * @param  CountryCode  $CountryCode
      */
-    public function __construct(CountryCodeModel $CountryCode)
+    public function __construct(CountryCode $CountryCode)
     {
         $this->model = $CountryCode;
     }
@@ -33,24 +32,14 @@ class CountryCodeService extends BaseService
      * @throws GeneralException
      * @throws \Throwable
      */
-    public function store(array $data = []): CountryCodeModel
+    public function store(array $data = []): CountryCode
     {
-        DB::beginTransaction(); 
-        $filename = '';
-        try {
-            if($data['image']){
-                $image = $data['image'];
-                $filename = time() . '.' . $image->getClientOriginalExtension();
-                $croppedImage = Image::make($image)->fit(300, 300);
-                Storage::disk('public')->put('uploads/' . $filename, (string) $croppedImage->encode());
-            }
-
+        DB::beginTransaction();  
+        try { 
             $CountryCode = $this->model::create([
-                'image'         => $filename,
-                'CountryCode_name' => $data['CountryCode_name'], 
-                'CountryCode_slug' => $data['CountryCode_slug'],
-                'status'        => $data['status'],
-                'description'   => $data['description']
+                'country_name' => $data['country_name'], 
+                'country_code' => $data['country_code'],
+                'zip'          => $data['zip'],
             ]);
         } catch (Exception $e) {
             DB::rollBack(); 
@@ -69,7 +58,7 @@ class CountryCodeService extends BaseService
      * @throws GeneralException
      * @throws \Throwable
      */
-    public function update(CountryCodeModel $CountryCode, array $data = []): CountryCodeModel
+    public function update(CountryCode $CountryCode, array $data = []): CountryCode
     {
         DB::beginTransaction(); 
         try {
@@ -94,7 +83,7 @@ class CountryCodeService extends BaseService
      *
      * @throws GeneralException
      */
-    public function destroy(CountryCodeModel $CountryCode): bool
+    public function destroy(CountryCode $CountryCode): bool
     { 
         if ($this->deleteById($CountryCode->id)) {  
             return true;
