@@ -90,15 +90,13 @@ Route::post('/country-store',[CountryCodeController::class,'store'])
     ->name('country.code.store')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.country.code.store'));
 });
-Route::get('/country-code-edit/{country.code}',[CountryCodeController::class,'edit'])
-    ->name('country.code.edit')->breadcrumbs(function (Trail $trail) {
-    $trail->push(__('Home'), route('admin.country.code.edit'));
+Route::get('/country-code-edit/{countryCode}',[CountryCodeController::class,'edit'])
+    ->name('country.code.edit')
+    ->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.country.code.edit','countryCode'));
 });
-Route::match(['patch','put','post'],'/country-code-update/{country.code}',[CountryCodeController::class,'update'])
+Route::post('/country-code-update/{countryCode}',[CountryCodeController::class,'update'])
     ->name('country.code.update')->breadcrumbs(function (Trail $trail) {
-    $trail->push(__('Home'), route('admin.country.code.update'));
+    $trail->push(__('Home'));
 });
-Route::delete('/country-code',[CountryCodeController::class,'destroy'])
-    ->name('country.code.destory')->breadcrumbs(function (Trail $trail) {
-    $trail->push(__('Home'), route('admin.country.code.destroy'));
-});
+Route::delete('/country-code-delete/{countryCode}',[CountryCodeController::class,'destroy'])->name('country.code.destroy');

@@ -11,7 +11,7 @@ class CountryCode extends Model
     
     protected $table = 'countrie_codes';
     protected $fillable = ['country_name','country_code','zip'];
-    protected $case = [
+    protected $casts = [
         'id'           => 'integer',
         'country_name' => 'string',
         'country_code' => 'string',

@@ -25,7 +25,7 @@ class CountryCodeRequest extends FormRequest
     public function rules()
     {
         return [
-            'country_name' => ['required','string',Rule::unique('countrie_codes','country_name')->ignore($this->route('country.code'))],
+            'country_name' => ['required','string',Rule::unique('countrie_codes','country_name')->ignore($this->route('countryCode'))],
             'country_code' => ['required','string',],
             'zip'          => ['required','string',]
         ];

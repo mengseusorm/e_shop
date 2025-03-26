@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Domains\Auth\Services\CountryCodeService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CountryCodeRequest;
+use App\Models\CountryCode;
 use Illuminate\Http\Request;
 
 class CountryCodeController extends Controller
@@ -66,7 +67,7 @@ class CountryCodeController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('backend.countryCode.edit',['countrycode' => CountryCode::find($id)]);
     }
 
     /**
@@ -76,9 +77,10 @@ class CountryCodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CountryCodeRequest $request, CountryCode $countryCode)
     {
-        //
+        $countryCode = $this->countryCodeService->update($countryCode,$request->validated()); 
+        return redirect()->route('admin.country.code')->withFlashSuccess(__('The Country Code was successfully updated.'));
     }
 
     /**
@@ -87,8 +89,10 @@ class CountryCodeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CountryCode $countryCode)
     {
-        //
+        $this->countryCodeService->destroy($countryCode);
+
+        return redirect()->route('admin.country.code')->withFlashSuccess(__('The Country was successfully deleted.'));
     }
 }

@@ -16,7 +16,7 @@
             />
         </x-slot>  
         <x-slot name="body">
-            @lang('Welcome to the Country Code')
+            <livewire:backend.country-code.country-code-table/>
         </x-slot>
     </x-backend.card>
 @endsection

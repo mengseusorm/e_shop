@@ -63,10 +63,9 @@ class CountryCodeService extends BaseService
         DB::beginTransaction(); 
         try {
             $CountryCode->update([
-                'CountryCode_name' => $data['CountryCode_name'], 
-                'CountryCode_slug' => $data['CountryCode_slug'],
-                'status'        => $data['status'],
-                'description'   => $data['description']
+                'country_name' => $data['country_name'], 
+                'country_code' => $data['country_code'],
+                'zip'          => $data['zip'],
             ]); 
         } catch (Exception $e) {
             DB::rollBack(); 
