@@ -5,6 +5,7 @@ namespace App\Http\Controllers\backend;
 use App\Domains\Auth\Services\MerchantService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MerchantRequest;
+use App\Models\CountryCode;
 use Illuminate\Http\Request;
 
 class MerchantController extends Controller
@@ -32,7 +33,7 @@ class MerchantController extends Controller
      */
     public function create()
     {
-        return view('backend.merchant.create');
+        return view('backend.merchant.create',['countryCodes' => CountryCode::all()]);
     }
 
     /**

@@ -42,6 +42,18 @@
                             <input type="date" name="dob" class="form-control" value="{{ old('dob') }}"/>
                         </div>
                     </div><!--form-group-->    
+                    
+                    <div class="form-group row">
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Country Code')</label> 
+                        <div class="col-md-10">
+                            <select name="country_code" id="" class="form-control">
+                                @foreach ($countryCodes as $countryCode )
+                                    <option value="{{$countryCode->id}}">{{$countryCode->country_name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div><!--form-group-->    
+
                 </div>
             </x-slot>
 
