@@ -7,6 +7,7 @@ use App\Models\CountryCode;
 use App\Services\BaseService;
 use Illuminate\Support\Facades\DB;
 use App\Exceptions\GeneralException;
+use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 

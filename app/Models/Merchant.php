@@ -26,4 +26,8 @@ class Merchant extends Model
         'phone_number'  => 'string',
         'dob'           => 'string',   
     ];
+    public function country()
+    {
+        return $this->belongsTo(\App\Models\CountryCode::class,'country_code');
+    }
 }

@@ -12,11 +12,11 @@
                 icon="c-icon cil-plus"
                 class="card-header-action"
                 :href="route('admin.merchant.create')"
-                :text="__('Create Merchant')"
+                :text="__('Create')"
             />
         </x-slot>  
         <x-slot name="body">
-            @lang('Welcome to the Dashboarddhoe ')
+            <livewire:backend.merchant.merchant-table/>
         </x-slot>
     </x-backend.card>
 @endsection

@@ -2,19 +2,24 @@
 
 namespace App\Http\Controllers\backend;
 
+use App\Domains\Auth\Services\countryCodeService;
 use App\Domains\Auth\Services\MerchantService;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MerchantRequest;
+use App\Http\Resources\CountryCodeResource;
 use App\Models\CountryCode;
 use Illuminate\Http\Request;
 
 class MerchantController extends Controller
 {
     public MerchantService $MerchantService;
+    public countryCodeService $countryCodeService;
+    
 
-    public function __construct(MerchantService $MerchantService)
+    public function __construct(MerchantService $MerchantService,CountryCodeService $countryCodeService)
     {
         $this->MerchantService = $MerchantService;
+        $this->countryCodeService = $countryCodeService;
     }
     /**
      * Display a listing of the resource.
@@ -31,9 +36,9 @@ class MerchantController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(CountryCode $countryCode)
     {
-        return view('backend.merchant.create',['countryCodes' => CountryCode::all()]);
+        return view('backend.merchant.create',['countryCodes' => $countryCode->all()]);
     }
 
     /**

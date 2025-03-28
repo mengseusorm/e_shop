@@ -39,6 +39,7 @@ class MerchantService extends BaseService
         try {
             $Merchant = $this->model::create([
                 'merchant_name' => $data['merchant_name'], 
+                'country_code' => $data['country_code'],
                 'address' => $data['address'],
                 'phone_number' => $data['phone_number'],
                 'dob'       => $data['dob']

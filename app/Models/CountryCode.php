@@ -17,4 +17,9 @@ class CountryCode extends Model
         'country_code' => 'string',
         'zip'          => 'string'
     ];
+
+    public function merchants()
+    {
+        return $this->hasMany(Merchant::class, 'country_code');
+    }
 }
