@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\MerchantRequest;
 use App\Http\Resources\CountryCodeResource;
 use App\Models\CountryCode;
+use App\Models\Merchant;
 use Illuminate\Http\Request;
 
 class MerchantController extends Controller
@@ -27,7 +28,7 @@ class MerchantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    { 
         return view('backend.merchant.index');
     }
 
@@ -61,7 +62,7 @@ class MerchantController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -72,7 +73,7 @@ class MerchantController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('backend.merchant.edit',['merchant' => Merchant::find($id),'country_code' => CountryCode::all()]);
     }
 
     /**
@@ -82,9 +83,10 @@ class MerchantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MerchantRequest $request,Merchant $merchant)
     {
-        //
+        $merchantUpdate = $this->MerchantService->update($merchant,$request->validated()); 
+        return redirect()->route('admin.merchant')->withFlashSuccess(__('The Merchant Code was successfully updated.'));
     }
 
     /**
@@ -93,8 +95,10 @@ class MerchantController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Merchant $merchant)
     {
-        //
+        $this->MerchantService->destroy($merchant);
+
+        return redirect()->route('admin.merchant')->withFlashSuccess(__('The Merchant was successfully deleted.'));
     }
 }

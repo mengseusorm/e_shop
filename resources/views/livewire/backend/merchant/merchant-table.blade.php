@@ -47,14 +47,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($merchants as $merchant)
-                    {{
-                        dd($merchant)
-                    }}
+            @foreach($merchants as $merchant) 
                 <tr> 
                     <td>{{ $merchant->type }}</td>
                     <td>{{ $merchant->merchant_name }}</td>
-                    <td>{{ $merchant->country_code }}</td>
+                    <td>{{ $merchant->country_name }}</td>
                     <td>{{ $merchant->address }}</td>
                     <td>{{ $merchant->phone_number }}</td>
                     <td>{{ $merchant->dob }}</td>

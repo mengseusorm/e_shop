@@ -55,13 +55,13 @@ Route::post('/merchant-store',[MerchantController::class,'store'])
 });
 Route::get('/merchant-edit/{merchant}',[MerchantController::class,'edit'])
     ->name('merchant.edit')->breadcrumbs(function (Trail $trail) {
-    $trail->push(__('Home'), route('admin.merchant.edit'));
+    $trail->push(__('Home'));
 });
 Route::match(['patch','put','post'],'/merchant-update/{merchant}',[MerchantController::class,'update'])
     ->name('merchant.update')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.merchant.update'));
 });
-Route::delete('/merchant',[MerchantController::class,'destroy'])
+Route::delete('/merchant/{merchant}',[MerchantController::class,'destroy'])
     ->name('merchant.destory')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.merchant.destroy'));
 });

@@ -31,7 +31,7 @@ class MerchantRequest extends FormRequest
                 'string',
                 Rule::unique('merchants','merchant_name')->ignore($this->route('merchant'))
             ],
-            'country_code'  => ['string'],
+            'country_code_id'  => ['required'],
             'address'       => ['required','string'],
             'phone_number'  => ['required','string'],
             'dob'           => ['required','string'],   

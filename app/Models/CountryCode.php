@@ -10,7 +10,13 @@ class CountryCode extends Model
     use HasFactory;
     
     protected $table = 'countrie_codes';
-    protected $fillable = ['country_name','country_code','zip'];
+    
+    protected $fillable = [
+        'country_name',
+        'country_code',
+        'zip'
+    ];
+
     protected $casts = [
         'id'           => 'integer',
         'country_name' => 'string',
@@ -19,7 +25,7 @@ class CountryCode extends Model
     ];
 
     public function merchants()
-    {
-        return $this->hasMany(Merchant::class, 'country_code');
+    { 
+        return $this->hasMany(Merchant::class, 'country_code_id');
     }
 }

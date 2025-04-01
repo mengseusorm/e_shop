@@ -35,11 +35,12 @@ class MerchantService extends BaseService
      */
     public function store(array $data = []): Merchant
     {
+        // dd($data);
         DB::beginTransaction();  
-        try {
+        try { 
             $Merchant = $this->model::create([
                 'merchant_name' => $data['merchant_name'], 
-                'country_code' => $data['country_code'],
+                'country_code_id' => $data['country_code_id'],
                 'address' => $data['address'],
                 'phone_number' => $data['phone_number'],
                 'dob'       => $data['dob']
@@ -67,13 +68,15 @@ class MerchantService extends BaseService
         DB::beginTransaction(); 
         try {
             $Merchant->update([
-                'Merchant_name' => $data['Merchant_name'], 
-                'Merchant_slug' => $data['Merchant_slug'],
-                'status'        => $data['status'],
-                'description'   => $data['description']
+                'merchant_name'   => $data['merchant_name'], 
+                'country_code_id' => $data['country_code_id'],
+                'address'         => $data['address'],
+                'phone_number'    => $data['phone_number'],
+                'dob'             => $data['dob'],
             ]); 
         } catch (Exception $e) {
             DB::rollBack(); 
+            Log::info($e);
             throw new GeneralException(__('There was a problem updating the Merchant.'));
         } 
         DB::commit();

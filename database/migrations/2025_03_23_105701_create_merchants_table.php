@@ -18,7 +18,6 @@ class CreateMerchantsTable extends Migration
             $table->id();
             $table->enum('type', [User::TYPE_ADMIN, User::TYPE_USER])->default(User::TYPE_USER);
             $table->string('merchant_name');
-            $table->foreignId('country_code')->constrained('countrie_codes')->cascadeOnDelete();
             $table->string('address')->nullable();
             $table->integer('phone_number')->nullable();
             $table->string('dob')->nullable();
