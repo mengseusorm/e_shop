@@ -4,6 +4,11 @@ namespace App\Http\Controllers\backend;
 
 use App\Domains\Auth\Services\ProductService;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
+use App\Models\Category;
+use App\Models\CountryCode;
+use App\Models\Merchant;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProuductController extends Controller
@@ -22,7 +27,6 @@ class ProuductController extends Controller
     public function index()
     {
         return view('backend.product.index',[
-            // 'merchant' => 
         ]);
     }
 
@@ -33,7 +37,12 @@ class ProuductController extends Controller
      */
     public function create()
     {
-        return view('backend.product.create');
+        return view('backend.product.create',[
+                'merchants'  => Merchant::all(),
+                'categories' => Category::all(),
+                'countries'  => CountryCode::all()
+            ]
+        );
     }
 
     /**
@@ -42,9 +51,10 @@ class ProuductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(ProductRequest $request)
+    { 
+        $this->ProductService->store($request->validated());
+        return redirect()->route('admin.product')->withFlashSuccess(__('The Product was successfully created.'));
     }
 
     /**
@@ -65,8 +75,14 @@ class ProuductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    { 
+        return view('backend.product.edit',[
+                'product'    => Product::findOrFail($id),
+                'merchants'  => Merchant::all(),
+                'categories' => Category::where('status',1)->get(),
+                'countries'  => CountryCode::all()
+            ]
+        );
     }
 
     /**
@@ -91,4 +107,6 @@ class ProuductController extends Controller
     {
         //
     }
+
+    
 }

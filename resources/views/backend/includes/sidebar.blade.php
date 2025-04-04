@@ -49,6 +49,22 @@
                 icon="c-sidebar-nav-icon cil-flag-alt"
                 :text="__('Country Code')" />
         </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.country.code')"
+                :active="activeClass(Route::is('admin.country.code'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-flag-alt"
+                :text="__('Order')" />
+        </li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.country.code')"
+                :active="activeClass(Route::is('admin.country.code'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-bask   "
+                :text="__('Offer')" />
+        </li>
 
         @if (
             $logged_in_user->hasAllAccess() ||

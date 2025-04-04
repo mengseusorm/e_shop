@@ -20,18 +20,36 @@ class Product extends Model
         'status', 
         'size', 
         'description', 
-        'category_id'
+        'category_id',
+        'country_code_id'
     ];
     protected $casts = [
+        'id'            => 'integer',
         'image'         => 'string', 
         'product_code'  => 'string',
         'name'          => 'string', 
         'slug'          => 'string', 
         'merchant_id'   => 'integer', 
-        'price'         => 'decimal',   
+        'price'         => 'integer',   
         'status'        => 'integer', 
-        'size'          => 'string', 
+        'size'          => 'integer', 
         'description'   => 'string', 
-        'category_id'   => 'integer'
+        'category_id'   => 'integer',
+        'country_code_id' => 'integer'
     ];
+
+    public function merchant()
+    {
+        return $this->belongsTo(Merchant::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(CountryCode::class, 'country_code_id', 'id');
+    }
 }

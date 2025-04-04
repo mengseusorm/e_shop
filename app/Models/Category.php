@@ -25,4 +25,9 @@ class Category extends Model
         'status'        => 'integer',
         'description'   => 'string'
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

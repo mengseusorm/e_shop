@@ -3,10 +3,8 @@
 namespace App\Enums;
 
 class productSize
-{
-    const XS      = 'XS';
-    const S       = 'S';
-    const M       = 'M';
-    const L       = 'L';
-    const XL      = 'XL';
+{ 
+    const S       = 1;
+    const M       = 2;
+    const L       = 3; 
 }

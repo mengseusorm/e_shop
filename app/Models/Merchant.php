@@ -41,4 +41,9 @@ class Merchant extends Model
     {
         $this->attributes['dob'] = $value ? Carbon::parse($value)->format('Y-m-d') : null;
     }
+
+    public function product()
+    {
+        return $this->hasMany(Product::class);
+    }
 }

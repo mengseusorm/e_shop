@@ -75,6 +75,13 @@ Route::get('/product',[ProuductController::class,'index'])
 Route::get('/product-create',[ProuductController::class,'create'])->name('product.create')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.product.create'));
 });
+Route::post('/product-store',[ProuductController::class,'store'])->name('product.store')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.product.store'));
+});
+Route::get('/product-edit/{product}',[ProuductController::class,'edit'])->name('product.edit')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.product.edit','product'));
+});
+Route::delete('/product-delete/{product}',[ProuductController::class,'destroy'])->name('product.destroy');
 /**
  * country code
  */

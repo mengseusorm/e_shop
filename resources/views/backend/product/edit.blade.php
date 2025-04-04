@@ -2,14 +2,14 @@
 
 @extends('backend.layouts.app')
 
-@section('title', __('Create Category'))
+@section('title', __('Edit Product'))
 
 @section('content')
     <x-forms.post :action="route('admin.product.store')" enctype="multipart/form-data">
         @csrf
         <x-backend.card>
             <x-slot name="header">
-                @lang('Create Product')
+                @lang('Edit Product')
             </x-slot>
             <x-slot name="headerActions">
                 <x-utils.link class="card-header-action" :href="route('admin.product')" :text="__('Cancel')" />
@@ -20,16 +20,18 @@
                     <div class="form-group row">
                         <label for="name" class="col-md-2 col-form-label text-uppercase">@lang('Product')</label> 
                         <div class="col-md-10">
-                            <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('name') }}" maxlength="100" required />
+                            <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ $product->name }}" maxlength="100" required />
                         </div>
-                    </div><!--form-group-->
-    
+                    </div><!--form-group--> 
                     <div class="form-group row">
                         <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Merchant')</label> 
                         <div class="col-md-10">
+                            {{-- {{ 
+                                dd($product) 
+                            }}  --}}
                             <select name="merchant_id" class="form-control">
                                 @foreach ($merchants as $merchant )
-                                    <option value="{{$merchant->id}}">{{$merchant->merchant_name}}</option>
+                                    <option value="{{$merchant->id}}"  {{ $merchant->id == $product->merchant_id ? 'Selected' : ''}}>{{$merchant->merchant_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -37,7 +39,7 @@
                     <div class="form-group row">
                         <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('price')</label> 
                         <div class="col-md-10">
-                            <input type="number" name="price" class="form-control" placeholder="{{ __('Price') }}" value="{{ old('category_slug') }}" maxlength="255" required />
+                            <input type="number" name="price" class="form-control" placeholder="{{ __('Price') }}" value="{{ $product->price }}" maxlength="255" required />
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
@@ -45,7 +47,7 @@
                         <div class="col-md-10">
                             <select name="category_id" class="form-control">
                                 @foreach ($categories as $category )
-                                    <option value="{{$category->id}}">{{$category->category_name}}</option>
+                                    <option value="{{$category->id}}" {{ $category->id == $product->category_id ? 'Selected' : ''}}>{{$category->category_name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -55,24 +57,24 @@
                         <div class="col-md-10">
                             <select name="country_code_id" class="form-control">
                                 @foreach ($countries as $country )
-                                    <option value="{{$country->id}}">{{$country->country_code}}</option>
+                                    <option value="{{$country->id}}" {{ $country->id == $product->country_code_id ? 'Selected' : ''}}>{{$country->country_code}}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
                         <label for="size" class="col-md-2 col-form-label text-uppercase">@lang('size')</label> 
-                        <div class="col">
+                        <div class="col"> 
                             <div class="form-check">
-                                <input name="size" id="small" class="form-check-input" type="radio" value="1" {{ is_array(old('size')) && in_array(1, old('size')) ? 'checked' : '' }} />
+                                <input name="size" id="small" class="form-check-input" type="radio" value="small" {{ $product->size == 1 ? 'checked' : '' }} />
                                 <label class="form-check-label" for="small">@lang('Small')</label>
                             </div>
                             <div class="form-check">
-                                <input name="size" id="medium" class="form-check-input" type="radio" value="2" {{ is_array(old('size')) && in_array(2, old('size')) ? 'checked' : '' }} />
+                                <input name="size" id="medium" class="form-check-input" type="radio" value="medium" {{ $product->size == 2 ? 'checked' : '' }} />
                                 <label class="form-check-label" for="medium">@lang('Medium')</label>
                             </div>
                             <div class="form-check">
-                                <input name="size" id="large" class="form-check-input" type="radio" value="3" {{ is_array(old('size')) && in_array(3, old('size')) ? 'checked' : '' }} />
+                                <input name="size" id="large" class="form-check-input" type="radio" value="large" {{ $product->size == 3 ? 'checked' : '' }} />
                                 <label class="form-check-label" for="large">@lang('Large')</label>
                             </div> 
                         </div>

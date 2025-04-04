@@ -16,7 +16,7 @@
             />
         </x-slot>  
         <x-slot name="body">
-            @lang('Welcome to the Dashboarddhoe ')
+            <livewire:backend.product.product-table/>
         </x-slot>
     </x-backend.card>
 @endsection

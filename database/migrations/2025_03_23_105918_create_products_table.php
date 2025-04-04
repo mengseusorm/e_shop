@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('merchant_id')->constrained('merchants')->cascadeOnDelete();
             $table->decimal('price');
             $table->enum('status',[App\Enums\productStatus::AVAILABLE,App\Enums\productStatus::OUTOFSTOCK,App\Enums\productStatus::DISCONTINUED])->default(App\Enums\productStatus::AVAILABLE);
-            $table->json('size')->nullable();
+            // $table->json('size')->nullable();
             $table->string('description')->nullable()->max(2048);
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->foreignId('country_code_id')->constrained('countrie_codes')->after('product_code'); 
