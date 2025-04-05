@@ -31,7 +31,7 @@ class Product extends Model
         'slug'          => 'string', 
         'merchant_id'   => 'integer', 
         'price'         => 'integer',   
-        'status'        => 'integer', 
+        'status'        => 'string', 
         'size'          => 'integer', 
         'description'   => 'string', 
         'category_id'   => 'integer',

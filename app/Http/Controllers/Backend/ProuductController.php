@@ -65,7 +65,10 @@ class ProuductController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('backend.product.show',[
+                'product' => Product::findOrFail($id)
+            ]
+        );
     }
 
     /**
@@ -92,9 +95,10 @@ class ProuductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request,Product $product)
     {
-        //
+        $this->ProductService->update($product,$request->validated());
+        return redirect()->route('admin.product')->withFlashSuccess(__('The Product was successfully updated.'));
     }
 
     /**
@@ -103,10 +107,9 @@ class ProuductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
-    }
-
-    
+        $this->ProductService->destroy($product);
+        return redirect()->route('admin.product')->withFlashSuccess(__('The Product was successfully deleted.'));
+    } 
 }

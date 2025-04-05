@@ -5,7 +5,7 @@
 @section('title', __('Edit Category'))
 
 @section('content')
-    <x-forms.post :action="route('admin.category.update',$category->id)">
+    <x-forms.post :action="route('admin.category.update',$category->id)" enctype="multipart/form-data">
         @csrf
         <x-backend.card>
             <x-slot name="header">
@@ -17,20 +17,13 @@
             </x-slot>
 
             <x-slot name="body">
-                <div>  
                     <div class="form-group row">
                         <label for="name" class="col-md-2 col-form-label">@lang('Category name')</label> 
                         <div class="col-md-10">
                             <input type="text" name="category_name" class="form-control" placeholder="{{ __('Name') }}" value="{{ $category->category_name}}" maxlength="100" required />
                         </div>
-                    </div><!--form-group-->
 
-                    <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label">@lang('Category slug	')</label> 
-                        <div class="col-md-10">
-                            <input type="text" name="category_slug" class="form-control" placeholder="{{ __('Category slug	') }}" value="{{ $category->category_slug }}" maxlength="255" required />
-                        </div>
-                    </div><!--form-group-->   
+                    </div><!--form-group--> 
                     <div class="form-group row">
                         <label for="email" class="col-md-2 col-form-label">@lang('Category slug	')</label> 
                         <div class="col-md-10">
@@ -51,11 +44,10 @@
                             <textarea name="description" class="form-control"  cols="30" rows="10">{{$category->description}}</textarea>
                         </div>
                     </div><!--form-group-->  
-                </div>
             </x-slot>
 
             <x-slot name="footer">
-                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Update Category')</button>
+                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Update')</button>
             </x-slot>
         </x-backend.card>
     </x-forms.post>

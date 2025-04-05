@@ -66,15 +66,9 @@
                     <td>{{ $product->merchant->merchant_name }}</td> 
                     <td>{{ $product->price }}</td> 
                     <td>
-                        {{-- <span class="badge badge-success">
+                        <span class="badge badge-success">
                             {{ $product->status}}
-                        </span> --}}
-                        @if($product->status == '0')
-                            Available
-                        @else
-                            Unavailable
-                        @endif
-                        
+                        </span> 
                     </td>
                     <td>
                         <span class="badge badge-success">  
@@ -88,6 +82,7 @@
                         {{ $product->country->country_name }}
                     </td> 
                     <td> 
+                        <x-utils.view-button :href="route('admin.product.show', $product->id)" /> 
                         <x-utils.edit-button :href="route('admin.product.edit', $product->id)" />
                         <x-utils.delete-button :href="route('admin.product.destroy', $product->id)"/> 
                     </td>

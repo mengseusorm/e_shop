@@ -81,6 +81,12 @@ Route::post('/product-store',[ProuductController::class,'store'])->name('product
 Route::get('/product-edit/{product}',[ProuductController::class,'edit'])->name('product.edit')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.product.edit','product'));
 });
+Route::post('/product-update/{product}',[ProuductController::class,'update'])->name('product.update')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.product.update','product'));
+});
+Route::get('/product-show/{product}',[ProuductController::class,'show'])->name('product.show')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.product.show','product'));
+});
 Route::delete('/product-delete/{product}',[ProuductController::class,'destroy'])->name('product.destroy');
 /**
  * country code

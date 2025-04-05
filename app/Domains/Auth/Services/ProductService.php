@@ -38,7 +38,7 @@ class ProductService extends BaseService
     {  
         $data['image'] = $data['image'] ?? null;  
         DB::beginTransaction(); 
-        $filename = 'no-image.png'; 
+        $filename = 'no_image_available.png'; 
         try {
             if($data['image']){
                 $image = $data['image'];
@@ -82,15 +82,33 @@ class ProductService extends BaseService
      */
     public function update(Product $Product, array $data = []): Product
     {
+        $data['image'] = $data['image'] ?? null;  
         DB::beginTransaction(); 
+        $filename = 'no_image_available.jpg'; 
+        if($data['image']){
+            $image = $data['image'];
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $croppedImage = Image::make($image)->fit(300, 300);
+            Storage::disk('public')->put('uploads/' . $filename, (string) $croppedImage->encode());
+        }
         try {
+            $slug = $data['name'];
+            $get_slug = implode('-', explode(' ', strtolower($slug))); 
             $Product->update([
-                'Product_name' => $data['Product_name'], 
-                'Product_slug' => $data['Product_slug'],
-                'status'        => $data['status'],
-                'description'   => $data['description']
-            ]); 
+                'image'         => $filename, 
+                'slug'          => strtolower($get_slug),
+                'product_code'  => $this->randomProductCode(),
+                'name'          => $data['name'], 
+                'merchant_id'   => $data['merchant_id'], 
+                'price'         => $data['price'],   
+                'status'        => $data['status'], 
+                'size'          => $data['size'], 
+                'description'   => $data['description'], 
+                'category_id'   => $data['category_id'],
+                'country_code_id' => $data['country_code_id'],
+            ]);
         } catch (Exception $e) {
+            Log::info($e);
             DB::rollBack(); 
             throw new GeneralException(__('There was a problem updating the Product.'));
         } 

@@ -5,7 +5,7 @@
 @section('title', __('Edit Product'))
 
 @section('content')
-    <x-forms.post :action="route('admin.product.store')" enctype="multipart/form-data">
+    <x-forms.post :action="route('admin.product.update',$product->id)" enctype="multipart/form-data">
         @csrf
         <x-backend.card>
             <x-slot name="header">
@@ -26,9 +26,6 @@
                     <div class="form-group row">
                         <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Merchant')</label> 
                         <div class="col-md-10">
-                            {{-- {{ 
-                                dd($product) 
-                            }}  --}}
                             <select name="merchant_id" class="form-control">
                                 @foreach ($merchants as $merchant )
                                     <option value="{{$merchant->id}}"  {{ $merchant->id == $product->merchant_id ? 'Selected' : ''}}>{{$merchant->merchant_name}}</option>
@@ -66,15 +63,15 @@
                         <label for="size" class="col-md-2 col-form-label text-uppercase">@lang('size')</label> 
                         <div class="col"> 
                             <div class="form-check">
-                                <input name="size" id="small" class="form-check-input" type="radio" value="small" {{ $product->size == 1 ? 'checked' : '' }} />
+                                <input name="size" id="small" class="form-check-input" type="radio" value="1" {{ $product->size == 1 ? 'checked' : '' }} />
                                 <label class="form-check-label" for="small">@lang('Small')</label>
                             </div>
                             <div class="form-check">
-                                <input name="size" id="medium" class="form-check-input" type="radio" value="medium" {{ $product->size == 2 ? 'checked' : '' }} />
+                                <input name="size" id="medium" class="form-check-input" type="radio" value="2" {{ $product->size == 2 ? 'checked' : '' }} />
                                 <label class="form-check-label" for="medium">@lang('Medium')</label>
                             </div>
                             <div class="form-check">
-                                <input name="size" id="large" class="form-check-input" type="radio" value="large" {{ $product->size == 3 ? 'checked' : '' }} />
+                                <input name="size" id="large" class="form-check-input" type="radio" value="3" {{ $product->size == 3 ? 'checked' : '' }} />
                                 <label class="form-check-label" for="large">@lang('Large')</label>
                             </div> 
                         </div>
@@ -101,9 +98,8 @@
                     </div><!--form-group-->  
                 </div>
             </x-slot>
-
             <x-slot name="footer">
-                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Create Product')</button>
+                <button class="btn btn-sm btn-primary float-right" type="submit">@lang('Update Product')</button>
             </x-slot>
         </x-backend.card>
     </x-forms.post>
