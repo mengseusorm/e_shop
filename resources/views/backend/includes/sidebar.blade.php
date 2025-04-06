@@ -65,6 +65,15 @@
                 icon="c-sidebar-nav-icon cil-bask   "
                 :text="__('Offer')" />
         </li>
+        <li class="c-sidebar-nav-title">@lang('Product Rate')</li>
+        <li class="c-sidebar-nav-item">
+            <x-utils.link
+                class="c-sidebar-nav-link"
+                :href="route('admin.rate_on_product')"
+                :active="activeClass(Route::is('admin.rate_on_product'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-star"
+                :text="__('Rate on Product')" />
+        </li>
 
         @if (
             $logged_in_user->hasAllAccess() ||

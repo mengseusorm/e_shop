@@ -12,6 +12,7 @@ class HomeController
      */
     public function index()
     {
-        return view('frontend.index');
+        return view('frontend_e_shop.pages.homepage');
+        // return view('frontend.index');
     }
 }

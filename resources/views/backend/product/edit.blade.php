@@ -93,7 +93,7 @@
                     <div class="form-group row">
                         <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Description')</label> 
                         <div class="col-md-10"> 
-                            <textarea name="description" class="form-control"  cols="30" rows="10"></textarea>
+                            <textarea name="description" class="form-control"  cols="30" rows="10">{{$product->description}}</textarea>
                         </div>
                     </div><!--form-group-->  
                 </div>

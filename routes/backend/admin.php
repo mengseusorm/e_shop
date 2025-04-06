@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend\CurrencyController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\backend\MerchantController;
 use App\Http\Controllers\backend\ProuductController;
+use App\Http\Controllers\Backend\RateOnProductController;
 use Tabuna\Breadcrumbs\Trail;
 
 // All route names are prefixed with 'admin.'.
@@ -139,3 +140,10 @@ Route::post('/currency-update/{currency}',[CurrencyController::class,'update'])
     $trail->push(__('Home'));
 });
 Route::delete('/currency-delete/{currency}',[CurrencyController::class,'destroy'])->name('currency.destroy');
+/**
+ * rate on product
+ */
+Route::get('/rate-on-product',[RateOnProductController::class,'index'])
+    ->name('rate_on_product')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.rate_on_product'));
+});

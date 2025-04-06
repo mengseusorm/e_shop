@@ -81,6 +81,12 @@
                         @displayDate($product->updated_at)
                     </td>
                 </tr>
+                <tr>
+                    <th>@lang('Description')</th>
+                    <td>
+                        {{ $product->description}}
+                    </td>
+                </tr>
             </table>
         </x-slot>
     </x-backend.card>

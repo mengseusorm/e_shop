@@ -84,8 +84,8 @@ class ProductService extends BaseService
     {
         $data['image'] = $data['image'] ?? null;  
         DB::beginTransaction(); 
-        $filename = 'no_image_available.jpg'; 
-        if($data['image']){
+        $filename = $Product->image; // Keep the existing image if no new image is uploaded
+        if ($data['image']) {
             $image = $data['image'];
             $filename = time() . '.' . $image->getClientOriginalExtension();
             $croppedImage = Image::make($image)->fit(300, 300);
