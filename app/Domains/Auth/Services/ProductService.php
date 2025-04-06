@@ -61,6 +61,7 @@ class ProductService extends BaseService
                 'description'   => $data['description'], 
                 'category_id'   => $data['category_id'],
                 'country_code_id' => $data['country_code_id'],
+                'currency_id'   => $data['currency_id'],
             ]);
         } catch (Exception $e) {
             DB::rollBack(); 
@@ -106,6 +107,7 @@ class ProductService extends BaseService
                 'description'   => $data['description'], 
                 'category_id'   => $data['category_id'],
                 'country_code_id' => $data['country_code_id'],
+                'currency_id'   => $data['currency_id'],
             ]);
         } catch (Exception $e) {
             Log::info($e);

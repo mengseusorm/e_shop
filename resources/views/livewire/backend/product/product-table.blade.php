@@ -64,7 +64,7 @@
                     <td>{{ $product->product_code }}</td>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->merchant->merchant_name }}</td> 
-                    <td>{{ $product->price }}</td> 
+                    <td>{{ $product->price }} {{$product->currency != null ? $product->currency->symbol : ''}}</td> 
                     <td>
                         <span class="badge badge-success">
                             {{ $product->status}}

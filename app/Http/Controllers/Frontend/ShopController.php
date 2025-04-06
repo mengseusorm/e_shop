@@ -18,4 +18,16 @@ class ShopController extends Controller
             'products' => $product,
         ]);
     }
+
+    public function category($category)
+    {
+        $product = Product::with(['category'])
+            ->where('status', 1)
+            ->where('category_id', $category)
+            ->latest()
+            ->paginate(12);
+        return view('frontend_e_shop.pages.shop.index',[
+            'products' => $product,
+        ]);
+    }
 }

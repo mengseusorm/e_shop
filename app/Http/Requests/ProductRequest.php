@@ -33,7 +33,8 @@ class ProductRequest extends FormRequest
             'size'          => ['nullable'], 
             'description'   => ['string','nullable'], 
             'category_id'   => ['required'],
-            'country_code_id' => ['required']
+            'country_code_id' => ['required'],
+            'currency_id'   => ['nullable'],
         ];
     }
 }

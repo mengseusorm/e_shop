@@ -67,6 +67,20 @@
                     <nav class="navbar">
                         <ul class="navbar_menu">
                             <li><a href="{{route('frontend.index')}}">home</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </a>
+                                <ul class="dropdown-menu">
+                                    @foreach (App\Models\Category::all() as $category)
+                                        <li><a href="{{route('frontend.shop.category', ['category' => $category->id])}}">{{$category->category_name}}</a></li>
+                                    @endforeach
+                                    {{-- <li><a href="#">cad</a></li>
+                                    <li><a href="#">aud</a></li>
+                                    <li><a href="#">eur</a></li>
+                                    <li><a href="#">gbp</a></li> --}}
+                                </ul>
+                            </li>
                             <li><a href="{{route('frontend.shop.index')}}">shop</a></li>
                             <li><a href="#">promotion</a></li>
                             <li><a href="#">pages</a></li>

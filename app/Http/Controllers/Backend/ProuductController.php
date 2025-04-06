@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\CountryCode;
+use App\Models\Currency;
 use App\Models\Merchant;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -38,6 +39,7 @@ class ProuductController extends Controller
     public function create()
     {
         return view('backend.product.create',[
+                'currencies'   => Currency::all(),
                 'merchants'  => Merchant::all(),
                 'categories' => Category::all(),
                 'countries'  => CountryCode::all()
@@ -80,6 +82,7 @@ class ProuductController extends Controller
     public function edit($id)
     { 
         return view('backend.product.edit',[
+                'currencies'   => Currency::all(),
                 'product'    => Product::findOrFail($id),
                 'merchants'  => Merchant::all(),
                 'categories' => Category::where('status',1)->get(),

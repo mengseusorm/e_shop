@@ -40,6 +40,17 @@
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
+                        <label for="size" class="col-md-2 col-form-label text-uppercase">@lang('Currency')</label> 
+                        <div class="col">
+                            @foreach ($currencies as $currency )
+                                <div class="form-check">
+                                    <input name="currency_id" id="currency" class="form-check-input" type="radio" value="{{$currency->id}}" {{ $product->currency_id == $currency->id ? 'checked' : '' }} />
+                                    <label class="form-check-label" for="currency"><span class="badge badge-success">{{$currency->symbol}}</span> {{$currency->code}}</label>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div><!--form-group-->    
+                    <div class="form-group row">
                         <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('category')</label> 
                         <div class="col-md-10">
                             <select name="category_id" class="form-control">

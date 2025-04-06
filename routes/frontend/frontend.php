@@ -9,3 +9,5 @@ use Tabuna\Breadcrumbs\Trail;
  */
 Route::get('/shop', [ShopController::class, 'index'])
     ->name('shop.index');
+Route::get('/shop/{category}', [ShopController::class, 'category'])
+    ->name('shop.category');

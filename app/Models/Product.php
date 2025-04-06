@@ -21,7 +21,8 @@ class Product extends Model
         'size', 
         'description', 
         'category_id',
-        'country_code_id'
+        'country_code_id',
+        'currency_id',
     ];
     protected $casts = [
         'id'            => 'integer',
@@ -35,7 +36,8 @@ class Product extends Model
         'size'          => 'integer', 
         'description'   => 'string', 
         'category_id'   => 'integer',
-        'country_code_id' => 'integer'
+        'country_code_id' => 'integer',
+        'currency_id'   => 'integer',
     ];
 
     public function merchant()
@@ -51,5 +53,10 @@ class Product extends Model
     public function country()
     {
         return $this->belongsTo(CountryCode::class, 'country_code_id', 'id');
+    }
+
+    public function currency()
+    {
+        return $this->belongsTo(Currency::class, 'currency_id', 'id');
     }
 }

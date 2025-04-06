@@ -22,4 +22,8 @@ class Currency extends Model
         'symbol' => 'string',
         'exchange_rate' => 'double',
     ];
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'currency_id', 'id');
+    }
 }
