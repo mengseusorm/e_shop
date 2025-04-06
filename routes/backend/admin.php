@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\backend\CountryCodeController;
+use App\Http\Controllers\Backend\CurrencyController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\backend\MerchantController;
 use App\Http\Controllers\backend\ProuductController;
@@ -113,3 +114,28 @@ Route::post('/country-code-update/{countryCode}',[CountryCodeController::class,'
     $trail->push(__('Home'));
 });
 Route::delete('/country-code-delete/{countryCode}',[CountryCodeController::class,'destroy'])->name('country.code.destroy');
+/**
+ * currency
+ */
+Route::get('/currency',[CurrencyController::class,'index'])
+    ->name('currency')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.currency'));
+});
+Route::get('/currency-create',[CurrencyController::class,'create'])
+    ->name('currency.create')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.currency.create'));
+});
+Route::post('/country-store',[CurrencyController::class,'store'])
+    ->name('currency.store')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.currency.store'));
+});
+Route::get('/currency-edit/{currency}',[CurrencyController::class,'edit'])
+    ->name('currency.edit')
+    ->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.currency.edit','currency'));
+});
+Route::post('/currency-update/{currency}',[CurrencyController::class,'update'])
+    ->name('currency.update')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'));
+});
+Route::delete('/currency-delete/{currency}',[CurrencyController::class,'destroy'])->name('currency.destroy');
