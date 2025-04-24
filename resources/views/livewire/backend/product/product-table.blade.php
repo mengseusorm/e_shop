@@ -11,7 +11,7 @@
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif
                 </th>
-                <th wire:click="sortBy('name')" style="cursor:pointer" class="text-uppercase">
+                <th  wire:click="sortBy('name')" style="cursor:pointer" class="text-uppercase" width="300">
                     @lang('Name')
                     @if($sortField === 'name')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>

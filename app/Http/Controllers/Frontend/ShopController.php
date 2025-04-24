@@ -10,10 +10,8 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $product = Product::with(['category'])
-            ->where('status', 1)
-            ->latest()
-            ->paginate(12);
+        $product = Product::with(['category'])->get();
+            // ->latest();
         return view('frontend_e_shop.pages.shop.index',[
             'products' => $product,
         ]);

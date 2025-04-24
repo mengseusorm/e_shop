@@ -7,8 +7,7 @@
     @include('frontend_e_shop.layouts.banner')
 
     <div class="new_arrivals">
-        <div class="container">
-            
+        <div class="container"> 
             <div class="row"> 
                 <div class="col text-center">
                     <div class="section_title new_arrivals_title">

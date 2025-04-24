@@ -17,7 +17,7 @@
         </x-slot> 
         <x-slot name="body">
             {{-- @livewire('backend/category/category') --}}
-            <livewire:backend.category.category-table />
+            <livewire:backend.category.category-table/>
         </x-slot>
     </x-backend.card>
 @endsection

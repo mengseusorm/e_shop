@@ -30,7 +30,6 @@
             <div class="row">
                 <div class="col">
                     <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-    
                         <!-- Product 1 -->
                         @if ($products)
                             @foreach ($products as $product )     
