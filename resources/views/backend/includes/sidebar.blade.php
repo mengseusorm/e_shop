@@ -1,11 +1,12 @@
 <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
     <div class="c-sidebar-brand d-lg-down-none">
-        <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+        <h1>{{ appName() }}</h1>
+        {{-- <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
             <use xlink:href="{{ asset('img/brand/coreui.svg#full') }}"></use>
         </svg>
         <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
             <use xlink:href="{{ asset('img/brand/coreui.svg#signet') }}"></use>
-        </svg>
+        </svg> --}}
     </div><!--c-sidebar-brand-->
 
     <ul class="c-sidebar-nav">
@@ -31,7 +32,7 @@
                 :href="route('admin.product')"
                 :active="activeClass(Route::is('admin.product'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-inbox"
-                :text="__('Products')" />
+                :text="__('product')" />
         </li> 
         <li class="c-sidebar-nav-item">
             <x-utils.link
@@ -55,14 +56,14 @@
                 :href="route('admin.country.code')"
                 :active="activeClass(Route::is('admin.country.code'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-flag-alt"
-                :text="__('Order')" />
+                :text="__('order')" />
         </li>
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
                 :href="route('admin.country.code')"
                 :active="activeClass(Route::is('admin.country.code'), 'c-active')"
-                icon="c-sidebar-nav-icon cil-bask   "
+                icon="c-sidebar-nav-icon cil-bask"
                 :text="__('Offer')" />
         </li>
         <li class="c-sidebar-nav-title">@lang('Product Rate')</li>

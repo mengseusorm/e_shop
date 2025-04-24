@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4">
-        <input type="text" wire:model.debounce.500ms="search" placeholder="Search product..." class="form-control w-50 mb-2">
+        <input type="text" wire:model.debounce.500ms="search" placeholder="@lang('Search products...')" class="form-control w-50 mb-2">
     </div> 
     <table class="table">
         <thead>
@@ -30,13 +30,13 @@
                     @endif
                 </th>
                 <th wire:click="sortBy('status')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Status')
+                    @lang('status')
                     @if($sortField === 'status')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif
                 </th>
                 <th wire:click="sortBy('size')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Size')
+                    @lang('size')
                     @if($sortField === 'size')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif
@@ -48,7 +48,7 @@
                     @endif
                 </th>
                 <th wire:click="sortBy('country_code_id')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Country code')
+                    @lang('country-code')
                     @if($sortField === 'country_code_id')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif

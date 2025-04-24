@@ -95,8 +95,15 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     { 
-        $this->categoryService->destroy($category);
-
-        return redirect()->route('admin.category')->withFlashSuccess(__('The Category was successfully deleted.'));
+        try {
+            $isDeleted = $this->categoryService->destroy($category);
+            if ($isDeleted) {
+                return redirect()->route('admin.category')->withFlashSuccess(__('The Category was successfully deleted.'));
+            } else {
+                return redirect()->route('admin.category')->withFlashDanger(__('Failed to delete the Category.'));
+            }
+        } catch (\Throwable $th) {
+            return redirect()->route('admin.category')->withFlashDanger(__('An error occurred: ') . $th->getMessage());
+        }
     }
 }

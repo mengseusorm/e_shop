@@ -6,7 +6,9 @@ use App\Exceptions\GeneralException;
 use App\Models\Category;
 use App\Services\BaseService;
 use Exception;
+use finfo;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
@@ -51,6 +53,7 @@ class CategoryService extends BaseService
                 'description'   => $data['description']
             ]);
         } catch (Exception $e) {
+            Log::info($e->getMessage());
             DB::rollBack(); 
             throw new GeneralException(__('There was a problem creating the Category.'));
         } 
@@ -111,10 +114,14 @@ class CategoryService extends BaseService
 
     public function uploadImage($image): string
     {
+
         $filename = time() . '.' . $image->getClientOriginalExtension();
         $croppedImage = Image::make($image)->fit(300, 300);
         Storage::disk('public')->put('uploads/' . $filename, (string) $croppedImage->encode());
 
         return $filename;
+   
+    
+      
     }
 }

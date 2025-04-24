@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('/coloshop-master/plugins/OwlCarousel2-2.2.1/animate.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/coloshop-master/styles/main_styles.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('/coloshop-master/styles/responsive.css')}}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -23,14 +24,15 @@
 
 	@include('frontend_e_shop.layouts.header')
 
-	{{-- <div class="fs_menu_overlay"></div> --}}
-
-
-    @yield('content')
+	<div class="fs_menu_overlay"></div>
+	<div class="mt-5">
+		<br><br>
+		@yield('content')
+	</div>
 
 	<!-- Footer -->
 
-	@include('frontend_e_shop.layouts.footer')
+	{{-- @include('frontend_e_shop.layouts.footer') --}}
 
 </div>
 

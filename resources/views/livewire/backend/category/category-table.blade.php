@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4">
-        <input type="text" wire:model.debounce.500ms="search" placeholder="Search categorys..." class="form-control w-50 mb-2">
+        <input type="text" wire:model.debounce.500ms="search" placeholder="@lang('Search categorys...')" class="form-control w-50 mb-2">
     </div> 
     <table class="table">
         <thead>
@@ -14,19 +14,13 @@
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif
                 </th>
-                <th wire:click="sortBy('category_slug')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Category-slug')
-                    @if($sortField === 'email')
-                        <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
-                    @endif
-                </th>
                 <th wire:click="sortBy('status')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Status')
+                    @lang('status')
                     @if($sortField === 'status')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif
                 </th>
-                <th class="text-uppercase">Actions</th>
+                <th class="text-uppercase">@lang('actions')</th>
             </tr>
         </thead>
         <tbody>

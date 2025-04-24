@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4">
-        <input type="text" wire:model.debounce.500ms="search" placeholder="Search Country Code..." class="form-control w-50 mb-2">
+        <input type="text" wire:model.debounce.500ms="search" placeholder="@lang('Search country-code...')" class="form-control w-50 mb-2">
     </div> 
     <table class="table">
         <thead>
@@ -12,7 +12,7 @@
                     @endif
                 </th>
                 <th wire:click="sortBy('country_code')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Country code')
+                    @lang('country-code')
                     @if($sortField === 'country_code')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif

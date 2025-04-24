@@ -14,7 +14,15 @@ Route::get('/shop/{category}', [ShopController::class, 'category'])
     ->name('shop.category');
 
 
-Route::post('/add-to-cart/{product}',[AddToCartController::class, 'addToCart'])
-        ->name('add-to-cart');
-Route::post('/show-product-order',[AddToCartController::class, 'showProductOrder'])
-    ->name('show-product-order');
+// Route::get('/add-to-cart/{product}',[AddToCartController::class, 'addToCart'])
+//         ->name('add-to-cart');
+// Route::get('/show-product-order',[AddToCartController::class, 'showProductOrder'])
+//     ->name('show-product-order');
+// Route::get('/product-order-cancel/{id}',[AddToCartController::class, 'productordercancel'])
+//     ->name('product-order-cancel');
+
+Route::get('cart', [AddToCartController::class, 'viewCart'])->name('cart.index');
+Route::get('add-to-cart/{id}', [AddToCartController::class, 'addToCart'])->name('cart.add');
+Route::get('remove-from-cart/{id}', [AddToCartController::class, 'removeFromCart'])->name('cart.remove');
+Route::get('checkout', [AddToCartController::class, 'checkout'])->name('cart.checkout');
+Route::post('checkout', [AddToCartController::class, 'placeOrder'])->name('cart.placeOrder');

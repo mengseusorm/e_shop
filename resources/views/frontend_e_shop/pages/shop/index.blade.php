@@ -40,7 +40,7 @@
                                             <img src="{{ asset($product->image ? '/storage/uploads/'.$product->image : '/storage/uploads/no_image_available.jpg')}}" alt="">
                                         </div>
                                         <div class="favorite favorite_left"></div>
-                                        <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+                                        <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div>
                                         <div class="product_info">
                                             <h6 class="product_name"><a href="single.html">{{$product->description}}</a></h6>
                                             <div class="product_price">{{ $product->price }} {{$product->currency ? $product->currency->symbol : '' }} <span>$590.00</span></div>

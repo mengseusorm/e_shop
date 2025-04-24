@@ -5,7 +5,7 @@
 @section('content')
     <x-backend.card>
         <x-slot name="header">
-            @lang('Welcome :Name', ['name' => $logged_in_user->name])
+            @lang('Welcome') {{ $logged_in_user->name }}
         </x-slot>
         <x-slot name="headerActions">
             <x-utils.link

@@ -59,4 +59,8 @@ class Product extends Model
     {
         return $this->belongsTo(Currency::class, 'currency_id', 'id');
     }
+
+    public function addToCart(){
+        return $this->hasMany(AddToCart::class);
+    }
 }
