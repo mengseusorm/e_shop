@@ -1,6 +1,6 @@
 <div>
     <div class="mb-4">
-        <input type="text" wire:model.debounce.500ms="search" placeholder="Search Currency..." class="form-control w-50 mb-2">
+        <input type="text" wire:model.debounce.500ms="search" placeholder="@lang('Search Currency...')" class="form-control w-50 mb-2">
     </div> 
     <table class="table">
         <thead>
@@ -18,13 +18,13 @@
                     @endif
                 </th>
                 <th wire:click="sortBy('symbol')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Symbol')
+                    @lang('symbol')
                     @if($sortField === 'symbol')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif
                 </th>
                 <th wire:click="sortBy('exchange_rate')" style="cursor:pointer" class="text-uppercase">
-                    @lang('Exchange rate')
+                    @lang('exchange_rate')
                     @if($sortField === 'exchange_rate')
                         <span>{{ $sortDirection === 'asc' ? '↑' : '↓' }}</span>
                     @endif

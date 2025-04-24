@@ -169,6 +169,9 @@
     "Currencies" : "Currencies",
     "System" : "System",
     "Product Rate" : "Product Rate",
-    "Rate On product": "Rate On product"
-
+    "Rate On product": "Rate On product",
+    "code" : "Code",
+    "symbol" : "Symbol",
+    "exchange_rate" : "Exchange Rate",
+    "Search Currency..." : "Search Currency..."
 }

@@ -8,7 +8,8 @@
 
     <div class="new_arrivals">
         <div class="container">
-            <div class="row">
+            
+            <div class="row"> 
                 <div class="col text-center">
                     <div class="section_title new_arrivals_title">
                         <h2>Shops</h2>
@@ -30,28 +31,26 @@
             <div class="row">
                 <div class="col">
                     <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-    
-                        <!-- Product 1 -->
-                        @if ($products)
-                            @foreach ($products as $product )     
-                                <div class="product-item men">
-                                    <div class="product discount product_filter">
-                                        <div class="product_image">
-                                            <img src="{{ asset($product->image ? '/storage/uploads/'.$product->image : '/storage/uploads/no_image_available.jpg')}}" alt="">
-                                        </div>
-                                        <div class="favorite favorite_left"></div>
-                                        <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div>
-                                        <div class="product_info">
-                                            <h6 class="product_name"><a href="single.html">{{$product->description}}</a></h6>
-                                            <div class="product_price">{{ $product->price }} {{$product->currency ? $product->currency->symbol : '' }} <span>$590.00</span></div>
-                                        </div>
-                                    </div>
-                                    <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                                </div>
-                            @endforeach 
-                        @else
-
-                        @endif
+                           <!-- Product 1 -->
+                           @if ($products)
+                           @foreach ($products as $product )    
+                                   <div class="product-item men">
+                                       <div class="product discount product_filter">
+                                           <div class="product_image">
+                                               <img src="{{ asset($product->image ? '/storage/uploads/'.$product->image : '/storage/uploads/no_image_available.jpg')}}" alt="">
+                                           </div>
+                                           <div class="favorite favorite_left"></div>
+                                           <div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span></span></div>
+                                           <div class="product_info">
+                                               <h6 class="product_name"><a href="single.html">{{$product->description}}</a></h6>
+                                               <div class="product_price">{{ $product->price }} {{$product->currency ? $product->currency->symbol : '' }} <span></span></div>
+                                           </div>
+                                       </div>
+                                   <a href="{{ route('frontend.cart.add', $product->id) }}" class="red_button add_to_cart_button">add to cart</a>
+                               </div>
+                           @endforeach 
+                       @else
+                       @endif
                     </div>
                 </div>
             </div>

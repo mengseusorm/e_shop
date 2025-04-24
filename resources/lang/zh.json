@@ -169,5 +169,9 @@
     "Currencies": "货币",
     "System": "系统",
     "Product Rate": "产品评分",
-    "Rate On product": "产品评分"
+    "Rate On product": "产品评分",
+    "code" : "代码",
+    "symbol" : "符号",
+    "exchange_rate" : "汇率",
+    "Search Currency..." : "搜索货币..."
 }

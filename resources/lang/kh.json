@@ -170,7 +170,11 @@
     "Currencies" : "រូបិយប័ណ្ណ",
     "System" : "ប្រព័ន្ធ",
     "Product Rate" : "អត្រាផលិតផល",
-    "Rate On product": "អត្រាលើផលិតផល"
-
+    "Rate On product": "អត្រាលើផលិតផល",
+    "code" : "កូដ",
+    "symbol" : "សញ្ញា",
+    "exchange_rate" : "អត្រាប្តូរប្រាក់",
+    "Search Currency..." : "ស្វែងរករូបិយប័ណ្ណ..."
+    
     
 }
