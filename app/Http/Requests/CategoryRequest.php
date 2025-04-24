@@ -25,7 +25,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'image'     => ['nullable','image','mimes:jpeg,png,jpg,gif,svg','max:2048'], 
+            'image'     => ['nullable'], 
             'category_name' => ['required','string',Rule::unique('categories','category_name')->ignore($this->route('category'))],
             'status'    => ['required','integer'],
             'description' => ['max:255']

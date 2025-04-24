@@ -9,29 +9,29 @@
         @csrf
         <x-backend.card>
             <x-slot name="header">
-                @lang('Create User')
+                @lang('Create')
             </x-slot>
 
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.merchant')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.merchant')" :text="__('cancel')" />
             </x-slot>
 
             <x-slot name="body">
                 <div>  
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-uppercase">@lang('user')</label> 
+                        <label for="name" class="col-md-2 col-form-label text-uppercase">@lang('Name')</label> 
                         <div class="col-md-10">
                             <input type="text" name="merchant_name" class="form-control" placeholder="{{ __('Name') }}" value="{{ old('merchant_name') }}" maxlength="100"  />
                         </div>
                     </div><!--form-group-->
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('address')</label> 
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Address')</label> 
                         <div class="col-md-10">
                             <input type="text" name="address" class="form-control" placeholder="{{ __('Address') }}" value="{{ old('address') }}" maxlength="255"  />
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('phone number')</label> 
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('phone_number')</label> 
                         <div class="col-md-10">
                             <input type="text" name="phone_number" class="form-control" placeholder="{{ __('Phone number') }}" value="{{ old('phone_number') }}" maxlength="255"  />
                         </div>

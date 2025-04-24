@@ -12,7 +12,7 @@
             </x-slot>
 
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.auth.user.index')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.auth.user.index')" :text="__('cancel')" />
             </x-slot>
 
             <x-slot name="body">
@@ -61,7 +61,7 @@
                     </div><!--form-group-->
 
                     <div class="form-group row">
-                        <label for="active" class="col-md-2 col-form-label">@lang('Active')</label>
+                        <label for="active" class="col-md-2 col-form-label">@lang('active')</label>
 
                         <div class="col-md-10">
                             <div class="form-check">

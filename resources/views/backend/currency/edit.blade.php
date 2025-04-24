@@ -12,7 +12,7 @@
                 @lang('Currency')
             </x-slot>
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.country.code')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.country.code')" :text="__('cancel')" />
             </x-slot>
             <x-slot name="body">
                 <div>  

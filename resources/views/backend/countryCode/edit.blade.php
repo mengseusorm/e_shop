@@ -3,17 +3,14 @@
 @section('title', __('Edit Country'))
 
 @section('content')
-{{-- {{
-    dd($countrycode->id)
-}} --}}
     <x-forms.post :action="route('admin.country.code.update',$countrycode->id)" enctype="multipart/form-data">
         @csrf
         <x-backend.card>
             <x-slot name="header">
-                @lang('Edit Country')
+                @lang('edit')
             </x-slot>
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action"  :text="__('Cancel')" />
+                <x-utils.link class="card-header-action"  :text="__('cancel')" />
             </x-slot>
             <x-slot name="body">
                 <div>  
@@ -24,7 +21,7 @@
                         </div>
                     </div><!--form-group-->
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Country code')</label> 
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('country-code')</label> 
                         <div class="col-md-10">
                             <input type="text" name="country_code" class="form-control" placeholder="{{ __('Country code') }}" value="{{ $countrycode->country_code }}" maxlength="255"  />
                         </div>

@@ -53,19 +53,19 @@
         <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
-                :href="route('admin.country.code')"
-                :active="activeClass(Route::is('admin.country.code'), 'c-active')"
-                icon="c-sidebar-nav-icon cil-flag-alt"
+                :href="route('admin.orders')"
+                :active="activeClass(Route::is('admin.orders'), 'c-active')"
+                icon="c-sidebar-nav-icon cil-inbox"
                 :text="__('order')" />
         </li>
-        <li class="c-sidebar-nav-item">
+        {{-- <li class="c-sidebar-nav-item">
             <x-utils.link
                 class="c-sidebar-nav-link"
                 :href="route('admin.country.code')"
                 :active="activeClass(Route::is('admin.country.code'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-bask"
                 :text="__('Offer')" />
-        </li>
+        </li> --}}
         <li class="c-sidebar-nav-title">@lang('Product Rate')</li>
         <li class="c-sidebar-nav-item">
             <x-utils.link
@@ -73,7 +73,7 @@
                 :href="route('admin.rate_on_product')"
                 :active="activeClass(Route::is('admin.rate_on_product'), 'c-active')"
                 icon="c-sidebar-nav-icon cil-star"
-                :text="__('Rate on Product')" />
+                :text="__('Rate On product')" />
         </li>
 
         @if (

@@ -9,11 +9,11 @@
         @csrf
         <x-backend.card>
             <x-slot name="header">
-                @lang('Update User')
+                @lang('Update')
             </x-slot>
 
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.category')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.category')" :text="__('cancel')" />
             </x-slot>
 
             <x-slot name="body">
@@ -25,13 +25,13 @@
 
                     </div><!--form-group--> 
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label">@lang('Category slug	')</label> 
+                        <label for="email" class="col-md-2 col-form-label">@lang('image')</label> 
                         <div class="col-md-10">
                             <input type="file" name="image" class="form-control"/>
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
-                        <label for="active" class="col-md-2 col-form-label">@lang('Active')</label> 
+                        <label for="active" class="col-md-2 col-form-label">@lang('active')</label> 
                         <div class="col-md-10">
                             <div class="form-check">
                                 <input name="status" id="active" class="form-check-input" type="checkbox" value="1" {{ old('active', true) ? 'checked' : '' }} />
@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label">@lang('Description')</label> 
+                        <label for="email" class="col-md-2 col-form-label">@lang('description')</label> 
                         <div class="col-md-10"> 
                             <textarea name="description" class="form-control"  cols="30" rows="10">{{$category->description}}</textarea>
                         </div>

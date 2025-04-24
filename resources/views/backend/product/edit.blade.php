@@ -9,16 +9,16 @@
         @csrf
         <x-backend.card>
             <x-slot name="header">
-                @lang('Edit Product')
+                @lang('edit')
             </x-slot>
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.product')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.product')" :text="__('cancel')" />
             </x-slot>
 
             <x-slot name="body">
                 <div>  
                     <div class="form-group row">
-                        <label for="name" class="col-md-2 col-form-label text-uppercase">@lang('Product')</label> 
+                        <label for="name" class="col-md-2 col-form-label text-uppercase">@lang('Name')</label> 
                         <div class="col-md-10">
                             <input type="text" name="name" class="form-control" placeholder="{{ __('Name') }}" value="{{ $product->name }}" maxlength="100" required />
                         </div>
@@ -34,7 +34,7 @@
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('price')</label> 
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Price')</label> 
                         <div class="col-md-10">
                             <input type="number" name="price" class="form-control" placeholder="{{ __('Price') }}" value="{{ $product->price }}" maxlength="255" required />
                         </div>
@@ -88,7 +88,7 @@
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
-                        <label for="active" class="col-md-2 col-form-label text-uppercase">@lang('Active')</label>
+                        <label for="active" class="col-md-2 col-form-label text-uppercase">@lang('active')</label>
                         <div class="col-md-10">
                             <div class="form-check">
                                 <input name="status" id="active" class="form-check-input" type="checkbox" value="1" {{ old('active', true) ? 'checked' : '' }} />
@@ -96,13 +96,13 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Image')</label> 
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('image')</label> 
                         <div class="col-md-10">
                             <input type="file" name="image" class="form-input"/>
                         </div>
                     </div><!--form-group--> 
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Description')</label> 
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('description')</label> 
                         <div class="col-md-10"> 
                             <textarea name="description" class="form-control"  cols="30" rows="10">{{$product->description}}</textarea>
                         </div>

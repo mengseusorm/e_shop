@@ -74,7 +74,8 @@ class CategoryService extends BaseService
     {   
         $data['image'] = $data['image'] ?? null;
         DB::beginTransaction(); 
-        $filename = 'no_image_available.png'; 
+        $filename = $Category->image; // Keep the existing image if no new image is uploaded
+
         try {
             if($data['image']){
                $filename = $this->uploadImage($data['image']);

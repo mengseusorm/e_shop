@@ -156,5 +156,19 @@
     "add_to_cart": "Add to cart",
     "checkout" : "Checkout",
     "users" : "Users",
-    "go" : "Go"
+    "go" : "Go",
+    "cancel" : "cancel",
+    "save" : "Save",
+    "active" : "active",
+    "description" : "description",
+    "Currency" : "Currency",
+    "Order Code" : "Order Code",
+    "Total Price" : "Total Price",
+    "Quantity" : "Quantity",
+    "Created_at" : "Created_at",
+    "Currencies" : "Currencies",
+    "System" : "System",
+    "Product Rate" : "Product Rate",
+    "Rate On product": "Rate On product"
+
 }

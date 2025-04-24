@@ -7,6 +7,7 @@ use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\backend\MerchantController;
 use App\Http\Controllers\backend\ProuductController;
 use App\Http\Controllers\Backend\RateOnProductController;
+use App\Http\Controllers\OrderController;
 use Tabuna\Breadcrumbs\Trail;
 
 // All route names are prefixed with 'admin.'.
@@ -102,8 +103,8 @@ Route::get('/country-code-create',[CountryCodeController::class,'create'])
     $trail->push(__('Home'), route('admin.country.code.create'));
 });
 Route::post('/country-store',[CountryCodeController::class,'store'])
-    ->name('country.code.store')->breadcrumbs(function (Trail $trail) {
-    $trail->push(__('Home'), route('admin.country.code.store'));
+    ->name('countrycode.store')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'));
 });
 Route::get('/country-code-edit/{countryCode}',[CountryCodeController::class,'edit'])
     ->name('country.code.edit')
@@ -146,4 +147,13 @@ Route::delete('/currency-delete/{currency}',[CurrencyController::class,'destroy'
 Route::get('/rate-on-product',[RateOnProductController::class,'index'])
     ->name('rate_on_product')->breadcrumbs(function (Trail $trail) {
     $trail->push(__('Home'), route('admin.rate_on_product'));
+});
+
+/**
+ * orders
+ */
+
+Route::get('/orders',[OrderController::class,'index'])
+    ->name('orders')->breadcrumbs(function (Trail $trail) {
+    $trail->push(__('Home'), route('admin.orders'));
 });

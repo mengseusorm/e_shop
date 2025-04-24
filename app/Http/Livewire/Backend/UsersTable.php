@@ -76,7 +76,7 @@ class UsersTable extends DataTableComponent
                     User::TYPE_ADMIN => 'Administrators',
                     User::TYPE_USER => 'Users',
                 ]),
-            'active' => Filter::make('Active')
+            'active' => Filter::make('active')
                 ->select([
                     '' => 'Any',
                     'yes' => 'Yes',

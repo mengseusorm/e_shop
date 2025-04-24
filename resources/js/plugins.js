@@ -59,7 +59,7 @@ $(function () {
             title: 'Are you sure you want to delete this item?',
             showCancelButton: true,
             confirmButtonText: 'Confirm Delete',
-            cancelButtonText: 'Cancel',
+            cancelButtonText: 'cancel',
             icon: 'warning'
         }).then((result) => {
             if (result.value) {
@@ -76,7 +76,7 @@ $(function () {
                 title: 'Are you sure you want to do this?',
                 showCancelButton: true,
                 confirmButtonText: 'Continue',
-                cancelButtonText: 'Cancel',
+                cancelButtonText: 'cancel',
                 icon: 'warning'
             }).then((result) => {
                 if (result.value) {
@@ -96,7 +96,7 @@ $(function () {
             title: 'Are you sure you want to do this?',
             showCancelButton: true,
             confirmButtonText: 'Continue',
-            cancelButtonText: 'Cancel',
+            cancelButtonText: 'cancel',
             icon: 'info',
         }).then((result) => {
             result.value && window.location.assign($(this).attr('href'));

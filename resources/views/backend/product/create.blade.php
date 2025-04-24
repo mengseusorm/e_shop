@@ -12,7 +12,7 @@
                 @lang('Create Product')
             </x-slot>
             <x-slot name="headerActions">
-                <x-utils.link class="card-header-action" :href="route('admin.product')" :text="__('Cancel')" />
+                <x-utils.link class="card-header-action" :href="route('admin.product')" :text="__('cancel')" />
             </x-slot>
 
             <x-slot name="body">
@@ -90,7 +90,7 @@
                         </div>
                     </div><!--form-group-->   
                     <div class="form-group row">
-                        <label for="active" class="col-md-2 col-form-label text-uppercase">@lang('Active')</label>
+                        <label for="active" class="col-md-2 col-form-label text-uppercase">@lang('active')</label>
                         <div class="col-md-10">
                             <div class="form-check">
                                 <input name="status" id="active" class="form-check-input" type="checkbox" value="1" {{ old('active', true) ? 'checked' : '' }} />
@@ -104,7 +104,7 @@
                         </div>
                     </div><!--form-group--> 
                     <div class="form-group row">
-                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('Description')</label> 
+                        <label for="email" class="col-md-2 col-form-label text-uppercase">@lang('description')</label> 
                         <div class="col-md-10"> 
                             <textarea name="description" class="form-control"  cols="30" rows="10"></textarea>
                         </div>

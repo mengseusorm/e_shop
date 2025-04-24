@@ -82,7 +82,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>@lang('Description')</th>
+                    <th>@lang('description')</th>
                     <td>
                         {{ $product->description}}
                     </td>

@@ -33,7 +33,7 @@
                     <td>{{ $category->category_slug }}</td>
                     <td>
                         <span class="badge badge-success">
-                            {{ $category->status == App\Enums\Status::ACTIVE ? __('Active') : __('Inactive') }}
+                            {{ $category->status == App\Enums\Status::ACTIVE ? __('active') : __('Inactive') }}
                         </span>
                     </td>
                     <td> 
