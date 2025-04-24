@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Models\Product;
+
 /**
  * Class HomeController.
  */
@@ -12,7 +14,10 @@ class HomeController
      */
     public function index()
     {
-        return view('frontend_e_shop.pages.homepage');
+        
+        return view('frontend_e_shop.pages.homepage',[
+            'products' => Product::all()
+        ]);
         // return view('frontend.index');
     }
 }
